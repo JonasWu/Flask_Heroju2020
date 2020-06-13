@@ -62,10 +62,21 @@ def handle_message(event):
     # 傳送文字
     if event.message.text == '傳送文字':
         message = TextSendMessage(getNews())
+    # 傳送圖片
+    elif event.message.text == '傳送圖片':
+        message = ImageSendMessage(
+            original_content_url='https://i.imgur.com/QPJ8A1b.png',
+            preview_image_url='https://i.imgur.com/QPJ8A1b.png'
+           )
+    # 傳送貼圖
+    elif event.message.text == '傳送貼圖':
+        message = StickerSendMessage(
+            package_id='1',
+            sticker_id='1'
+        )
     else:
         message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(event.reply_token, message)
-
+        line_bot_api.reply_message(event.reply_token, message)
 
 if __name__ == '__main__':
     app.run(debug=True)
