@@ -67,7 +67,7 @@ def handle_message(event):
         message = ImageSendMessage(
             original_content_url='https://i.imgur.com/QPJ8A1b.png',
             preview_image_url='https://i.imgur.com/QPJ8A1b.png'
-           )
+        )
     # 傳送貼圖
     elif event.message.text == '傳送貼圖':
         message = StickerSendMessage(
