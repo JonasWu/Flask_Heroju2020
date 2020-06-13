@@ -68,12 +68,6 @@ def handle_message(event):
             original_content_url='https://i.imgur.com/QPJ8A1b.png',
             preview_image_url='https://i.imgur.com/QPJ8A1b.png'
         )
-    # 傳送貼圖
-    elif event.message.text == '傳送貼圖':
-        message = StickerSendMessage(
-            package_id='1',
-            sticker_id='1'
-        )
     else:
         message = TextSendMessage(text=event.message.text)
         line_bot_api.reply_message(event.reply_token, message)
